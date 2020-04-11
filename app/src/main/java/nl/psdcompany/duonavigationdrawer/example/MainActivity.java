@@ -17,6 +17,7 @@ import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle;
 public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMenuClickListener {
     private MenuAdapter mMenuAdapter;
     private ViewHolder mViewHolder;
+    private Joystick mJoystick;
 
     private ArrayList<String> mTitles = new ArrayList<>();
 
@@ -39,9 +40,9 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
         handleDrawer();
 
         // Show main fragment in container
-        goToFragment(new MainFragment(), false);
-        mMenuAdapter.setViewSelected(0, true);
-        setTitle(mTitles.get(0));
+        //goToFragment(new MainFragment(), false);
+        //mMenuAdapter.setViewSelected(0, true);
+        //setTitle(mTitles.get(0));
     }
 
     private void handleToolbar() {
@@ -84,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
             transaction.addToBackStack(null);
         }
 
-        transaction.add(R.id.container, fragment).commit();
+        transaction.replace(R.id.container, fragment).commit();
+        //transaction.add(R.id.container, fragment).commit();
     }
 
     @Override
@@ -93,12 +95,23 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
         setTitle(mTitles.get(position));
 
         // Set the right options selected
-        mMenuAdapter.setViewSelected(position, true);
+        //mMenuAdapter.setViewSelected(position, true);
 
         // Navigate to the right fragment
+        System.out.println(position);
         switch (position) {
-            default:
+            case 0:
                 goToFragment(new MainFragment(), false);
+                break;
+            case 1:
+                goToFragment(new Joystick(), false);
+                break;
+            case 2:
+                goToFragment(new Control(), false);
+                break;
+            default:
+                //goToFragment(new MainFragment(), false);
+
                 break;
         }
 

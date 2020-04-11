@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Duo Example</string>
+    <string name="app_name">Android Connect</string>
 
-    <string name="hello_blank_fragment">This is the main fragment</string>
+    <string name="hello_blank_fragment">Prueba</string>
 
     <array name="menuOptions">
         <item>Home</item>
-        <item>Personal</item>
-        <item>High scores</item>
+        <item>Joystick</item>
+        <item>Control</item>
         <item>Settings</item>
         <item>About</item>
     </array>
