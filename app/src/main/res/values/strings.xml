@@ -10,4 +10,5 @@
         <item>Settings</item>
         <item>About</item>
     </array>
+    <string name="titulo4"></string>
 </resources>

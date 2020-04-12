@@ -1,7 +1,10 @@
 package nl.psdcompany.duonavigationdrawer.example;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
 
     private ArrayList<String> mTitles = new ArrayList<>();
 
+    int vistaFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,29 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
         //goToFragment(new MainFragment(), false);
         //mMenuAdapter.setViewSelected(0, true);
         //setTitle(mTitles.get(0));
+
+
+        if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "modo portrait", Toast.LENGTH_LONG).show();
+            System.out.println(vistaFragment);
+        }else {
+            Toast.makeText(this, "modo landscape", Toast.LENGTH_LONG).show();
+            System.out.println(vistaFragment);
+        }
+
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putInt("CONT", vistaFragment);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        vistaFragment = savedInstanceState.getInt("CONT");
+        onOptionClicked(vistaFragment, null);
+
     }
 
     private void handleToolbar() {
@@ -99,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
 
         // Navigate to the right fragment
         System.out.println(position);
+        vistaFragment=position;
+        System.out.println("vistaFragment: " + vistaFragment);
         switch (position) {
             case 0:
                 goToFragment(new MainFragment(), false);
@@ -108,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
                 break;
             case 2:
                 goToFragment(new Control(), false);
+                break;
+            case 3:
+                goToFragment(new Settings(), false);
                 break;
             default:
                 //goToFragment(new MainFragment(), false);
@@ -130,4 +162,7 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
         }
     }
+
+
+
 }

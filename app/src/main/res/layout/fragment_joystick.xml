@@ -3,38 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Recordatorio" />
-    <Spinner
-        android:id="@+id/dates"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/times" />
-    <Spinner
-        android:id="@id/times"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:layout_alignParentRight="true" />
-    <Button
-        android:id="@+id/buttonTXT"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/times"
-        android:layout_alignParentRight="true"
-        android:text="Aceptar" />
+    android:paddingRight="16dp"
+   android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="126dp"
+
+    <Button
+        android:id="@+id/buttonON"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@+id/buttonTXT"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:text="On" />
+    <Button
+        android:id="@+id/buttonOff"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonON"
+        android:layout_alignParentRight="true"
+        android:text="Off" />
+
 </RelativeLayout>
