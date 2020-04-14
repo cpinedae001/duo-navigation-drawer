@@ -32,12 +32,7 @@ public class Joystick extends Fragment {
        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         View view = inflater.inflate(R.layout.fragment_joystick, container, false);
         view.setVerticalScrollBarEnabled(true);
-        view.findViewById(R.id.buttonON).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "Esta encendido", Toast.LENGTH_LONG).show();
-            }
-        });
+
 
         return view;
     }
