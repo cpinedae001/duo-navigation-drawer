@@ -1,6 +1,7 @@
 package nl.psdcompany.duonavigationdrawer.example;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,7 +26,11 @@ public class Control extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_control, container, false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        View view = inflater.inflate(R.layout.fragment_control, container, false);
+
+
+        return view;
     }
 
 }

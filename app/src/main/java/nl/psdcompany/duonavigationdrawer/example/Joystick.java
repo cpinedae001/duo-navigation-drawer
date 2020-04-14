@@ -29,7 +29,7 @@ public class Joystick extends Fragment {
         // Inflate the layout for this fragment
 
 
-       //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+       getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         View view = inflater.inflate(R.layout.fragment_joystick, container, false);
         view.setVerticalScrollBarEnabled(true);
         view.findViewById(R.id.buttonON).setOnClickListener(new View.OnClickListener() {

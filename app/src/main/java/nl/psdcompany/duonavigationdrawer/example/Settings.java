@@ -1,6 +1,7 @@
 package nl.psdcompany.duonavigationdrawer.example;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,8 +25,10 @@ public class Settings extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        view.setVerticalScrollBarEnabled(true);
+        return view;
     }
 
 }
