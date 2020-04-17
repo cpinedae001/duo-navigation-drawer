@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ListView;
 
 
 /**
@@ -16,6 +19,13 @@ import android.view.ViewGroup;
  */
 public class Settings extends Fragment {
 
+
+    private Button scan;
+    private Button off;
+    private Button PairedBtn;
+    private Button discover;
+    private CheckBox checkboxLED1;
+    private ListView devicesListView;
 
     public Settings() {
         // Required empty public constructor
@@ -28,6 +38,8 @@ public class Settings extends Fragment {
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         view.setVerticalScrollBarEnabled(true);
+
+
         return view;
     }
 
